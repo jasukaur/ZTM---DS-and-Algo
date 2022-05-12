@@ -1,0 +1,13 @@
+arr1 =['a','b','c','x']
+arr2 = ['p','q','r','a','x']
+
+
+present = False
+for  i in arr1:
+  if i in arr2:
+    print (i)
+    present = True
+    break
+    
+print(present)
+    
