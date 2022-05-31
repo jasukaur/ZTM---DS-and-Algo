@@ -1,0 +1,82 @@
+# Node class to create new node
+class Node:
+  def __init__(self,value):
+    self.value = value;
+    self.next = None;
+
+# stack class 
+class Stack:
+
+  # Initializing top, bottom and length of stack
+  def __init__(self):
+    self.top = None;
+    self.bottom = None;
+    self.length = 0;
+
+  # function to check if stack is empty
+  def isEmpty(self):
+    if self.bottom == None:
+      return True
+
+  # Function for printing stack values
+  def printVal(self):
+    current = self.bottom
+    if self.length == 0:
+      print("Stack Empty")
+      
+    while current != None:
+      print(current.value, end = ' ')
+      current = current.next
+    print()
+
+  # Adding nodes to top of stack
+  def push(self,value):
+    newNode = Node(value)
+    if self.isEmpty():
+      self.top= newNode
+      self.bottom = newNode
+      self.length +=1
+    else:
+      self.top.next = newNode
+      self.top = newNode
+      self.length += 1
+     
+  # Removing the topmost element from stack
+  def pop(self):
+    if self.isEmpty():
+      print("Nothing to pop! Stack Empty")
+    
+    elif self.length == 1:
+      print(self.top.value +' Popped')
+      self.top = None
+      self.bottom = None
+      self.length = 0
+      
+    else:
+      print(self.top.value +' Popped')
+      current = self.bottom
+      
+      for i in range(self.length - 2):
+        current = current.next
+
+      current.next = None
+      self.top = current
+      self.length -= 1
+
+  # Checking out the topmost element of stack
+  def peek(self):
+    print(self.top.value)
+  
+# ------------Main Calling Stack Functions--------------
+myStack = Stack()
+myStack.push('Discord')
+myStack.push('Udemy')
+myStack.push('google')
+myStack.printVal()
+myStack.peek()
+myStack.pop()
+myStack.printVal()
+myStack.pop()
+myStack.printVal()
+myStack.pop()
+myStack.printVal()
