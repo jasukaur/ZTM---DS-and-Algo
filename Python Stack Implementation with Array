@@ -1,0 +1,54 @@
+# stack class 
+class Stack:
+  # Initializing array
+  def __init__(self):
+    self.arr = [];
+    
+  # function to check if stack is empty
+  def isEmpty(self):
+    if len(self.arr) == 0:
+      return True
+
+  # Function for printing stack values
+  def printVal(self):
+    if self.isEmpty():
+      print("Stack Empty")
+      
+    for i in range(0,len(self.arr)):
+      print(self.arr[i], end = ' ')
+    
+    print()
+
+  # Adding values to top of stack
+  def push(self,value):
+    self.arr.append(value)
+
+    
+  # Removing the topmost element from stack
+  def pop(self):
+    if self.isEmpty():
+      print("Nothing to pop! Stack Empty")
+      
+    else:
+      print(self.arr[len(self.arr)-1]+' Popped')
+      self.arr.pop(len(self.arr)-1)
+
+      
+  # Checking out the topmost element of stack
+  def peek(self):
+    print(self.arr[len(self.arr)-1])
+
+    
+# ------------Main Calling Stack Functions--------------
+myStack = Stack()
+myStack.push('Discord')
+myStack.push('Udemy')
+myStack.push('google')
+myStack.printVal()
+myStack.peek()
+myStack.pop()
+myStack.printVal()
+myStack.pop()
+myStack.printVal()
+myStack.pop()
+myStack.printVal()
